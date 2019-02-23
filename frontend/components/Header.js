@@ -1,6 +1,21 @@
 import Nav from "./Nav";
 import Link from "next/link";
 import styled from "styled-components";
+import Router from "next/router";
+import NProgress from "nprogress";
+
+Router.onRouteChangeStart = () => {
+  console.log("onRouteChangeStart Triggered");
+  NProgress.start(); // creates a red loading sign at top of page
+};
+Router.onRouteChangeComplete = () => {
+  console.log("onRouteChangeCompleteRouter Triggered");
+  NProgress.done();
+};
+Router.onRouteChangeError = () => {
+  console.log("onRouteChangeError");
+  NProgress.done();
+};
 
 const Logo = styled.h1`
   font-size: 4rem;
