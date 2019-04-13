@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/joshwestbury-97c871/sick-fits-prisma/dev
-# timestamp: Wed Feb 27 2019 06:17:58 GMT-0600 (Central Standard Time)
+# timestamp: Mon Apr 01 2019 10:03:13 GMT-0700 (Pacific Daylight Time)
 
 type AggregateUser {
   count: Int!
@@ -85,6 +85,7 @@ type UserConnection {
 }
 
 input UserCreateInput {
+  id: ID
   name: String!
   email: String!
 }
