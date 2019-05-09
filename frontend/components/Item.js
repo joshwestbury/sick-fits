@@ -15,7 +15,7 @@ class Item extends Component {
     const { item } = this.props;
     return (
       <ItemStyles>
-        {item.iamge ? <img src={item.iamge} alt={item.title} /> : null}
+        {item.image ? <img src={item.image} alt={item.title} /> : null}
         <Title>
           <Link
             href={{
