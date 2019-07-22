@@ -4,15 +4,23 @@ const Mutations = {
 
     const item = ctx.db.mutation.createItem({ data: { ...args } }, info);
     return item;
-  }
+  },
+  updateItem(parent, args, ctx, info) {
+    //first take copy of updates
+    const updates = { ...args };
 
-  // createDog(parent, args, ctx, info) {
-  //   global.dogs = global.dobs || [];
-  //   // create a dog
-  //   const newDog = { name: args.name };
-  //   global.dogs.push(newDog);
-  //   return newDog;
-  // }
+    // reomve the id from the updates since you cannot update the ids
+    delete updates.id;
+
+    // run the update method
+    return ctx.db.mutation.updateItem(
+      {
+        data: updates,
+        where: { id: args.id }
+      },
+      info
+    );
+  }
 };
 
 module.exports = Mutations;
